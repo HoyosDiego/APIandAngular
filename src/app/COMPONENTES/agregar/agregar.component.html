@@ -1,0 +1,72 @@
+<div class="container">
+    <p>Modificar Movie</p>
+    <div class="row">
+        <div class="col-sm-6">
+            <div>
+                <h5>Register title</h5>
+            </div>
+            <form (submit)="submit()" [formGroup]="registerform">
+                <div class="form-group">
+                    <label for="form-label">Title</label>
+                    <input name="title" class="form-control" formControlName="title" type="text" />
+                </div>
+            </form>
+            <div>
+                <h5>Register Crew</h5>
+            </div>
+            <form (submit)="submit()" [formGroup]="registerCast">
+                <div class="form-group">
+                    <!--id Cast-->
+                    <label for="form-label">Id</label>
+                    <input name="title" class="form-control" formControlName="id" type="text" />
+                    <!--name Cast-->
+                    <label for="form-label">Name</label>
+                    <input name="title" class="form-control" formControlName="name" type="text" />
+                    <!--order Cast-->
+                    <label for="form-label">Order</label>
+                    <input name="title" class="form-control" formControlName="order" type="text" />
+                    <!--cast_id Cast-->
+                    <label for="form-label">Cast Id</label>
+                    <input name="title" class="form-control" formControlName="cast_id" type="text" />
+                    <!--character Cast-->
+                    <label for="form-label">Character</label>
+                    <input name="title" class="form-control" formControlName="character" type="text" />
+                    <!--credit_id Cast-->
+                    <label for="form-label">Credit id</label>
+                    <input name="title" class="form-control" formControlName="credit_id" type="text" />
+                </div>
+            </form>
+
+        </div>
+        <div class="col-sm-6">
+            <div>
+                <h5>Register Cast</h5>
+            </div>
+            <form (submit)="submit()" [formGroup]="registerCrew">
+                <div class="form-group">
+                    <!--id Crew-->
+                    <label for="form-label">Id</label>
+                    <input name="title" class="form-control" formControlName="id" type="text" />
+                    <!--job Crew-->
+                    <label for="form-label">Name</label>
+                    <input name="title" class="form-control" formControlName="job" type="text" />
+                    <!--name Crew-->
+                    <label for="form-label">Order</label>
+                    <input name="title" class="form-control" formControlName="name" type="text" />
+                    <!--gender Crew-->
+                    <label for="form-label">Cast Id</label>
+                    <input name="title" class="form-control" formControlName="gender" type="text" />
+                    <!--credit_id Crew-->
+                    <label for="form-label">Character</label>
+                    <input name="title" class="form-control" formControlName="credit_id" type="text" />
+                    <!--department Crew-->
+                    <label for="form-label">Credit id</label>
+                    <input name="title" class="form-control" formControlName="department" type="text" />
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" type="submit" color="primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

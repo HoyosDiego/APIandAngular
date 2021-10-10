@@ -1,0 +1,9 @@
+@import '~handsontable/dist/handsontable.full.css';
+
+#eliminar{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+#bntEliminar{
+    padding-left: 15px;
+}
