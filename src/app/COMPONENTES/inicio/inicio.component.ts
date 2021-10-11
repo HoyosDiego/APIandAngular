@@ -102,7 +102,8 @@ export class InicioComponent implements OnInit {
           console.log("Movie eliminada");
           this.listarMovies();
           this.router.navigate(['/inicio'])
-          alert("Record deleted")
+          alert("Record deleted");
+          window.location.reload();
         },
         error => console.log("error al eliminar ", error)
 
