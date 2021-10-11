@@ -9,15 +9,15 @@ import { error } from '@angular/compiler/src/util';
   selector: 'app-inicio',
   template: `
   <div id="eliminar">
-    <button (click)="eliminar()" [disabled]=btnEliminarDisabled  class="btn btn-danger" id="btnEliminar">Eliminar</button>&nbsp;
-    <button (click)="modificar()" [disabled]=btnModificarDisabled type="button" class="btn btn-success" id="btnModificar">Modificar</button>
+    <button (click)="eliminar()" [disabled]=btnEliminarDisabled  class="btn btn-danger" id="btnEliminar">Delete</button>&nbsp;
+    <button (click)="modificar()" [disabled]=btnModificarDisabled type="button" class="btn btn-success" id="btnModificar">Update</button>
   </div>
   <br>
   <div id="message">
   <h6 id="h6message">For Delete or Update click on the Id  you want</h6>
   </div>
   <br>
-  <div (click)="saved($event)">
+  <div id="container" (click)="saved($event)">
     <hot-table
       [data]="data"
       [colHeaders]="true"
@@ -88,9 +88,10 @@ export class InicioComponent implements OnInit {
 
   }
 
+
   //delete 
   eliminar() {
-    if (window.confirm("Do you really want to Delete?")) {
+    if (window.confirm("Do you really want to Delete with Id = " + this.idMovie + "?")) {
 
       this.MovieService.deleteMovie(this.idMovie).subscribe(
         res => {
@@ -107,7 +108,6 @@ export class InicioComponent implements OnInit {
       alert("Record not deleted , Thanks for Visiting!");
     }
 
-    console.log("eliminar")
   }
 
   modificar() {
