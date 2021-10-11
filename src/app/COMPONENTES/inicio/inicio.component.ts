@@ -55,7 +55,6 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarMovies()
-
   }
 
   listarMovies() {
@@ -82,10 +81,6 @@ export class InicioComponent implements OnInit {
           this.dataset.push(pasarData)
           this.data = this.dataset;
         }
-        // console.log("datos... ", JSON.parse(this.datos[0].crew))
-
-        //console.log("datos... ", this.dataset)
-
       },
 
       error => console.log("Error al consultar movies" + error)

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +15,6 @@ export class MovieService {
   }
 
   getMovieid(id: number) {
-    console.log("get por id ", id)
     return this.HttpClient.get(this.url + '/' + id)
   }
 
@@ -26,12 +23,10 @@ export class MovieService {
   }
 
   deleteMovie(id: number) {
-    console.log("deletemovie ", id)
     return this.HttpClient.delete(this.url + '/' + id)
   }
 
   editMovie(movie_id: number, movie: any) {
-    console.log("modificando ", movie)
     return this.HttpClient.put(this.url + '/' + movie_id, movie);
   }
 
