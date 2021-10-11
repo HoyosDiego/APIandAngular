@@ -7,3 +7,10 @@
 #bntEliminar{
     padding-left: 15px;
 }
+
+#message{
+    padding-left: 10px;
+}
+#h6message{
+    color: red;
+}

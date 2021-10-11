@@ -13,14 +13,16 @@ import { error } from '@angular/compiler/src/util';
     <button (click)="modificar()" [disabled]=btnModificarDisabled type="button" class="btn btn-success" id="btnModificar">Modificar</button>
   </div>
   <br>
+  <div id="message">
+  <h6 id="h6message">For Delete or Update click on the Id  you want</h6>
+  </div>
+  <br>
   <div (click)="saved($event)">
     <hot-table
       [data]="data"
       [colHeaders]="true"
-      [rowHeaders]="true"
       height="auto"
       width="auto"
-      [columnSorting]= "true"
       [manualColumnMove]="true"
       [manualColumnResize]="true"
       licenseKey="non-commercial-and-evaluation"
@@ -28,9 +30,8 @@ import { error } from '@angular/compiler/src/util';
       >
         <hot-column data="movie_id" [readOnly]="true" title="Movie Id"></hot-column>
         <hot-column data="title" title="Title"></hot-column>
-        <hot-column data="cast" title="Cast" width='179' ></hot-column>
-        <hot-column data="crew" title="crew"></hot-column>/>
-        <hot-column type="checkbox" title="check" checkedTemplate="yes"></hot-column>/>
+        <hot-column data="cast" title="Cast" ></hot-column>
+        <hot-column data="crew" title="crew"></hot-column>
       </hot-table>
   </div>
   <br>
@@ -43,7 +44,7 @@ export class InicioComponent implements OnInit {
   datos: any = [];
   data = [];
   id = "myTable";
-
+  idMovie: any;
 
 
   //variable disabled
@@ -96,7 +97,7 @@ export class InicioComponent implements OnInit {
   eliminar() {
     if (window.confirm("Do you really want to Delete?")) {
 
-      this.MovieService.deleteMovie(402515).subscribe(
+      this.MovieService.deleteMovie(this.idMovie).subscribe(
         res => {
           console.log("Movie eliminada");
           this.listarMovies();
@@ -110,30 +111,27 @@ export class InicioComponent implements OnInit {
       alert("Record not deleted , Thanks for Visiting!");
     }
 
-
-
     console.log("eliminar")
   }
 
   modificar() {
     this.btnEliminarDisabled = true;
     this.btnModificarDisabled = true;
-    this.router.navigate(['/edit/433715']);
+    this.router.navigate(['/edit/' + this.idMovie]);
   }
 
   saved(e: any) {
-    this.btnEliminarDisabled = false;
-    this.btnModificarDisabled = false;
-
-    let idRequerido = document.querySelector(".htDimmed");
-    //console.log("idRequerido ", idRequerido);
-
-    const el = this.renderer.selectRootElement('.htDimmed');
-    const p = this.renderer.setAttribute(el, 'example', '');
-    console.log("e ", e);
-
-
-
+    if (e != '') {
+      if (e.target.innerText >= 0) {
+        this.btnEliminarDisabled = false;
+        this.btnModificarDisabled = false;
+        this.idMovie = e.target.innerText;
+        console.log("saved ", e)
+      } else {
+        this.btnEliminarDisabled = true;
+        this.btnModificarDisabled = true;
+      }
+    }
   }
 
 
