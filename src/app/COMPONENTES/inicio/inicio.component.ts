@@ -23,6 +23,7 @@ import { error } from '@angular/compiler/src/util';
       [colHeaders]="true"
       height="auto"
       width="auto"
+      [columnSorting]="true"
       [manualColumnMove]="true"
       [manualColumnResize]="true"
       licenseKey="non-commercial-and-evaluation"
